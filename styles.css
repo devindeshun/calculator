@@ -1,0 +1,22 @@
+.calculator {
+    margin: 0 auto;
+    height: 750px;
+    width: 500px;
+    border: 1px solid black;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.calculator-screen{
+    margin: 0 auto;
+    border: 1px solid black;
+    /* width: 200px; */
+}
+
+.calculator-numpad {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
