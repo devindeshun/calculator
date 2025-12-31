@@ -18,6 +18,18 @@ function operate(operator, num1, num2) {
     
 }
 
+let numpadKeys = [...document.querySelectorAll('.numpad-key')];
+let textArea = [document.querySelector('.calculator-input')];
+
+
+numpadKeys.map((item) => item.addEventListener('click', (e) => {
+    textArea = [document.querySelector('.calculator-input')];
+    console.log(e.target.innerHTML);
+    console.log(textArea.value);
+}))
+
+console.log(textArea.value)
+
 // console.log([3,5,6,'+',4,'/',2,7].find(operator => operator == "+" || operator == "-" || operator == "*" || operator == "/"))
 
 let var1;
