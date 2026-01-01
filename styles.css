@@ -11,9 +11,9 @@
 
 .calculator-screen{
     margin: 50px auto;
-    padding: 0;
+    padding: 0 5%;
     border: 1px solid black;
-    width: 80%;
+    width: 70%;
     height: 125px;
 }
 
@@ -29,7 +29,8 @@
 .calculator-numpad {
     margin-top: 70px;
     display: flex;
-    align-items: center;
+    align-content: center;
+    align-items: end;
     flex-direction: column;
     flex-wrap: wrap;
 }
