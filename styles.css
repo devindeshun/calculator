@@ -17,17 +17,18 @@
     width: 90%;
 }
 
-.calculator-input {
+.calculator-screen > input {
     border: none;
-    text-align: right;
     font-size: 72px;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+}
+
+.calculator-input {
+    text-align: right;
+    width: 85%;
 }
 
 .calculator-operator {
-    border: none;
+    text-align: center;
     width: 15%;
 }
 
@@ -41,7 +42,6 @@
 }
 
 .numpad-key {
-    display: inline-block;
     border: none;
     background-color: transparent;
     height: 100px;
