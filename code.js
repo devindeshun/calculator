@@ -18,16 +18,30 @@ function operate(operator, num1, num2) {
     
 }
 
-let numpadKeys = [...document.querySelectorAll('.numpad-key')];
+let numpadNumberKeys = [...document.querySelectorAll('.numpad-number')];
 let textArea = document.querySelector('.calculator-input');
-let screen = ""
+let clearKey = document.querySelector('.numpad-clear');
+let backspaceKey = document.querySelector('.numpad-backspace');
+let screen = "";
+let arr = [];
+
+clearKey.addEventListener('click', () => {
+    screen = "";
+    updateScreen(screen);
+});
+
+backspaceKey.addEventListener('click', () => {
+    arr = screen.split('').slice(0,-1).join('')
+    screen = '';
+    updateScreen(arr);
+});
 
 function updateScreen(newValue) {
     screen = screen + newValue;
     textArea.value = screen;
 }
 
-numpadKeys.map((item) => item.addEventListener('click', (e) => {
+numpadNumberKeys.map((item) => item.addEventListener('click', (e) => {
     updateScreen(e.target.innerHTML);
 }));
 
