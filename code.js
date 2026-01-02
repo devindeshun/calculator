@@ -87,28 +87,33 @@ numpadNumberKeys.map((item) => item.addEventListener('click', (e) => {
     operatorArea.value = "";
     if (!num2 && num1) {
         num2 = screen;
-    } else if (num2 && num1) {
-        num2 = screen;
     }
 }));
 
 numpadSymbolKeys.map((item) => item.addEventListener('click', (e) => {
-    if (e.target.innerHTML != '='){
+    if (e.target.innerHTML != '=') {
         operatorArea.value = e.target.innerHTML;
         operator = e.target.innerHTML;
     }
 
     if (num1 && num2) {
-        num2 = screen;
         num1 = operate(operator, num1, num2);
         num2 = "";
     }
 
-    if (num1) {
-        num2 = screen;
-        // return [num1, num2] = operate(operator, num1, num2);
-    } else {
+    if (!num1) {
         num1 = screen;
     }
+
     clearScreen();
-}))
+
+    if (e.target.innerHTML == '=') {
+        document.body.addEventListener('mousedown', (e) => {
+            const numpadPressed = e.target.className.split(' ').some((e) => e == 'numpad-number');
+            const backspacePressed = e.target.className.split(' ').some((e) => e == 'numpad-backspace');
+            if (numpadPressed || backspacePressed) {
+                clearAll();
+            };
+        }, {once : true})
+    }
+}));
