@@ -39,6 +39,9 @@ function updateScreen(newValue) {
 
 clearKey.addEventListener('click', () => {
     screen = "";
+    operator = "";
+    num1 = "";
+    num2 = "";
     operatorArea.value = "";
     updateScreen(screen);
 });
