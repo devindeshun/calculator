@@ -1,4 +1,4 @@
-
+// Error multiplying multi digit numbers
 
 let numpadNumberKeys = [...document.querySelectorAll('.numpad-number')];
 let numpadSymbolKeys = [...document.querySelectorAll('.numpad-symbol')];
@@ -11,7 +11,6 @@ clearAll();
 function add(num1, num2) {
     num1 = Number(num1) + Number(num2);
     clearScreen();
-    // num2 = "";
     updateScreen(num1);
     return num1;
 }
@@ -19,7 +18,6 @@ function add(num1, num2) {
 function subtract(num1, num2) {
     num1 = Number(num1) - Number(num2);
     clearScreen();
-    // num2 = "";
     updateScreen(num1);
     return num1;
 }
@@ -27,7 +25,6 @@ function subtract(num1, num2) {
 function multiply(num1, num2) {
     num1 = Number(num1) * Number(num2);
     clearScreen();
-    // num2 = "";
     updateScreen(num1);
     return num1;
 }
@@ -35,7 +32,6 @@ function multiply(num1, num2) {
 function divide(num1, num2) {
     num1 = Number(num1) / Number(num2);
     clearScreen();
-    // num2 = "";
     updateScreen(num1);
     return num1;
 }
@@ -56,7 +52,6 @@ function operate(operator, num1, num2) {
 function updateScreen(newValue) {
     screen = screen + newValue;
     textArea.value = screen;
-    console.log(`Num1: ${num1} Num2: ${num2} Operator: ${operator} Screen: ${screen}`);
 }
 
 function clearAll() {
@@ -77,9 +72,9 @@ clearKey.addEventListener('click', () => {
 });
 
 backspaceKey.addEventListener('click', () => {
-    arr = screen.split('').slice(0,-1).join('');
+    backspacedNumber = screen.split('').slice(0,-1).join('');
     clearScreen();
-    updateScreen(arr);
+    updateScreen(backspacedNumber);
 });
 
 numpadNumberKeys.map((item) => item.addEventListener('click', (e) => {
@@ -91,9 +86,10 @@ numpadNumberKeys.map((item) => item.addEventListener('click', (e) => {
 }));
 
 numpadSymbolKeys.map((item) => item.addEventListener('click', (e) => {
-    if (e.target.innerHTML != '=') {
-        operatorArea.value = e.target.innerHTML;
-        operator = e.target.innerHTML;
+    const clickedSymbol = e.target.innerHTML;
+    if (clickedSymbol != '=') {
+        operatorArea.value = clickedSymbol;
+        operator = clickedSymbol;
     }
 
     if (num1 && num2) {
@@ -107,7 +103,7 @@ numpadSymbolKeys.map((item) => item.addEventListener('click', (e) => {
 
     clearScreen();
 
-    if (e.target.innerHTML == '=') {
+    if (clickedSymbol == '=') {
         document.body.addEventListener('mousedown', (e) => {
             const numpadPressed = e.target.className.split(' ').some((e) => e == 'numpad-number');
             const backspacePressed = e.target.className.split(' ').some((e) => e == 'numpad-backspace');
