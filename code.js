@@ -4,6 +4,7 @@ let textArea = document.querySelector('.calculator-input');
 let operatorArea = document.querySelector('.calculator-operator');
 let clearKey = document.querySelector('.numpad-clear');
 let backspaceKey = document.querySelector('.numpad-backspace');
+let decimalKey = document.querySelector('.numpad-decimal');
 clearAll();
 
 function add(num1, num2) {
@@ -73,6 +74,12 @@ backspaceKey.addEventListener('click', () => {
     backspacedNumber = screen.split('').slice(0,-1).join('');
     clearScreen();
     updateScreen(backspacedNumber);
+});
+
+decimalKey.addEventListener('click', (e) => {
+    if (!screen.includes('.')){
+        updateScreen(e.target.innerHTML);
+    }
 });
 
 numpadNumberKeys.map((item) => item.addEventListener('click', (e) => {
