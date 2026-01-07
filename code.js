@@ -1,5 +1,3 @@
-// Error multiplying multi digit numbers
-
 let numpadNumberKeys = [...document.querySelectorAll('.numpad-number')];
 let numpadSymbolKeys = [...document.querySelectorAll('.numpad-symbol')];
 let textArea = document.querySelector('.calculator-input');
@@ -93,6 +91,7 @@ numpadSymbolKeys.map((item) => item.addEventListener('click', (e) => {
     }
 
     if (num1 && num2) {
+        num2 = screen;
         num1 = operate(operator, num1, num2);
         num2 = "";
     }
